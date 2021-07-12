@@ -1,12 +1,17 @@
 const Pet = require("../src/virtual-pet");
 
-describe("virtual-pet", () => {
-    let newPet;
-    beforeEach(() => {
-        newPet = new Pet("Tako");
-    });
+describe('constructor', () => {
+    // let newPet;
+    // beforeEach(() => {
+    //     newPet = new Pet("Tako");
+    // });
 
-    test('create a new object', () => {
-        expect(new Pet("Tako")).toBeInstanceOf(Object);
+    it("returns an object", () => {
+      expect(new Pet("Tako")).toBeInstanceOf(Object);
     });
-});
+    const kitty = new Pet("Tako");
+    it("gives the pet a name", () => {
+        expect(kitty.name).toBe("Tako");
+    });
+  });
+  
