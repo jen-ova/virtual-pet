@@ -43,4 +43,21 @@ describe("constructor", () => {
         expect(kitty.fitness).toBe(7);
     });
   });
+
+  describe("play", () => {
+    const kitty = new Pet("Tako");
+    it('increases fitness by 4', () => {
+      kitty.fitness = 4;
+      kitty.play();
+      
+      expect(kitty.fitness).toEqual(8);
+    });
+
+    it('increases fitness by to a maximum of 10', () => {
+        kitty.fitness = 8;
+        kitty.play();
+        
+        expect(kitty.fitness).toEqual(10);
+      });
+  });
   
