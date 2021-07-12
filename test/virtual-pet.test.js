@@ -27,7 +27,7 @@ describe("constructor", () => {
     });
   });
 
-  describe('growUp', () => {
+describe('growUp', () => {
     const kitty = new Pet("Tako");
     kitty.growUp();
 
@@ -44,7 +44,7 @@ describe("constructor", () => {
     });
   });
 
-  describe("play", () => {
+describe("play", () => {
     const kitty = new Pet("Tako");
     it("increases fitness by 4", () => {
       kitty.fitness = 4;
@@ -61,7 +61,7 @@ describe("constructor", () => {
       });
   });
 
-  describe("feed", () => {
+describe("feed", () => {
     const kitty = new Pet("Tako");
     it("decreases hunger by 3", () => {
       kitty.hunger = 4;
@@ -78,3 +78,34 @@ describe("constructor", () => {
       });
   });
   
+describe("checkUp", () => {
+    const kitty = new Pet("Tako");
+
+    it("checks if the pet is unfit", () => {
+        kitty.fitness = 2;
+        kitty.hunger = 3;
+        
+        expect(kitty.checkUp()).toBe("I want to play!");
+    });
+  
+    it("checks if the pet is hungry", () => {
+        kitty.fitness = 5;
+        kitty.hunger = 6;
+          
+        expect(kitty.checkUp()).toBe("I'm hungry!");
+    });
+
+    it("checks if the pet is unfit and hungry", () => {
+        kitty.fitness = 3;
+        kitty.hunger = 7;
+        
+        expect(kitty.checkUp()).toBe("I want to play AND I'm hungry!");
+    });
+
+    it("checks if the pet is fit and full", () => {
+        kitty.fitness = 6;
+        kitty.hunger = 2;
+        
+        expect(kitty.checkUp()).toBe("I feel great!");
+    });
+  });
