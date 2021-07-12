@@ -46,18 +46,35 @@ describe("constructor", () => {
 
   describe("play", () => {
     const kitty = new Pet("Tako");
-    it('increases fitness by 4', () => {
+    it("increases fitness by 4", () => {
       kitty.fitness = 4;
       kitty.play();
       
-      expect(kitty.fitness).toEqual(8);
+      expect(kitty.fitness).toBe(8);
     });
 
-    it('increases fitness by to a maximum of 10', () => {
+    it("increases fitness to a maximum of 10", () => {
         kitty.fitness = 8;
         kitty.play();
         
-        expect(kitty.fitness).toEqual(10);
+        expect(kitty.fitness).toBe(10);
+      });
+  });
+
+  describe("feed", () => {
+    const kitty = new Pet("Tako");
+    it("decreases hunger by 3", () => {
+      kitty.hunger = 4;
+      kitty.feed();
+      
+      expect(kitty.hunger).toBe(1);
+    });
+
+    it("doesn't allow hunger to go below 0", () => {
+        kitty.hunger = 2;
+        kitty.feed();
+        
+        expect(kitty.hunger).toBe(0);
       });
   });
   

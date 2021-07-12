@@ -12,14 +12,22 @@ Pet.prototype.growUp = function() {
     this.age += 1;
     this.hunger += 5;
     this.fitness -= 3;
-  };
+};
   
-  Pet.prototype.play = function() {
+Pet.prototype.play = function() {
     if ((this.fitness + 4) <= 10 ) {
       this.fitness += 4;
     } else {
       this.fitness = 10;
     }
-  }
+};
+
+Pet.prototype.feed = function() {
+    if ((this.hunger - 3) > MINIMUM_HUNGER ) {
+      this.hunger -= 3;
+    } else {
+      this.hunger = MINIMUM_HUNGER;
+    }
+};
 
 module.exports = Pet;
