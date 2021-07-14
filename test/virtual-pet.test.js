@@ -137,3 +137,27 @@ describe("checkUp", () => {
     });
 
   });
+
+  describe("feed", () => {
+    const kitty = new Pet("Tako");
+
+    it("checks for a growUp error", () => {
+        kitty.age = 30;
+        expect(() => kitty.growUp()).toThrow("Your pet is no longer alive :(");
+    });
+
+    it("checks for a play error", () => {
+        kitty.age = 30;
+        expect(() => kitty.play()).toThrow("Your pet is no longer alive :(");
+    });
+  
+    it("checks for a feed error", () => {
+        kitty.age = 30;
+        expect(() => kitty.feed()).toThrow("Your pet is no longer alive :(");
+    });
+
+    it("checks for a checkup error", () => {
+        kitty.age = 30;
+        expect(() => kitty.checkUp()).toThrow("Your pet is no longer alive :(");
+    });
+    });
