@@ -160,4 +160,18 @@ describe("checkUp", () => {
         kitty.age = 30;
         expect(() => kitty.checkUp()).toThrow("Your pet is no longer alive :(");
     });
-    });
+});
+
+describe("adoptChild", () => {
+    const parent = new Pet("Pen");
+    const child = new Pet("Tako");
+
+    parent.adoptChild(child);
+
+    it("checks the child has been added to the children array", () => {
+        expect(parent.children).toHaveLength(1);
+    })
+    it("checks the name of the child has been added to the children array", () => {
+        expect(parent.children[0].name).toEqual("Tako");
+    })
+});
