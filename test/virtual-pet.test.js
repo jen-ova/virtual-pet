@@ -109,3 +109,31 @@ describe("checkUp", () => {
         expect(kitty.checkUp()).toBe("I feel great!");
     });
   });
+
+
+  describe("isAlive", () => {
+    const kitty = new Pet("Tako");
+
+    it("tells us if the pet is alive", () => {
+        kitty.fitness = 6;
+        kitty.hunger = 2;
+        kitty.age = 3;
+        expect(kitty.isAlive).toBe(true);
+    });
+
+    it("tells us if the pet has died from being unfit", () => {
+        kitty.fitness = 0; 
+        expect(kitty.isAlive).toBe(false);
+    });
+
+    it("tells us if the pet has died from hunger", () => {
+        kitty.hunger = 10;
+        expect(kitty.isAlive).toBe(false);
+    });
+
+    it("tells us if the pet has died from old age", () => {
+        kitty.age = 30;
+        expect(kitty.isAlive).toBe(false);
+    });
+
+  });

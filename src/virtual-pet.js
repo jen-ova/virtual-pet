@@ -3,12 +3,18 @@ const MINIMUM_HUNGER = 0;
 const HUNGRY = 5;
 const UNFIT = 3;
 
-function Pet (name) {
+function Pet(name) {
     this.name = name;
     this.age = 0;
     this.hunger = 0;
     this.fitness = MAXIMUM_FITNESS;
-}
+};
+
+Pet.prototype = {
+    get isAlive() {
+      return this.age < 30 && this.hunger < 10 && this.fitness > 0;
+    }
+  };
 
 Pet.prototype.growUp = function() {
     this.age += 1;
